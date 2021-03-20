@@ -4,18 +4,13 @@ import { log } from "./utils";
 import { getWordCard, wordSetCard } from "./ui-elements";
 import { initializeWordMeaning } from "./word-meaning";
 
-const wordSets: string[] = ["Word Set 1", "Word Set 2", "Word Set 3"];
+const wordSets: string[] = ["Crust", "Mantle", "Core"];
 const wordSetPage: HTMLElement = document.getElementById("word-set-section");
 const wordMeaningPage: HTMLElement = document.getElementById(
   "word-meaning-section"
 );
 
 initializeWordSetContainer();
-
-const word = "Test Word";
-const meaning = "Explanation of the word in one or two sentances";
-
-
 
 function showWords(setName: string) {
   /*

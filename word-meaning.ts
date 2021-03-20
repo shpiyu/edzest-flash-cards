@@ -49,12 +49,19 @@ function displayWord(wordMeaning: WordMeaning) {
 
 function displayMeaning(wordMeaning: WordMeaning) {
   wordCardContainer.innerHTML = "";
+  wordCardContainer.style.transform = "rotateY(180deg)";
+  wordCardContainer.style.msTransform = "rotateY(180deg)";
+  wordCardContainer.style.WebkitTransform = "rotateY(180de)";
   wordCardContainer.appendChild(
     getMeaningCard(wordMeaning, reinitialize_words)
   );
 }
 
 function reinitialize_words(selected_option: string) {
+  wordCardContainer.style.transform = "";
+  wordCardContainer.style.msTransform = "";
+  wordCardContainer.style.WebkitTransform = "";
+
   log(selected_option);
   if (selected_option == "yes") {
     setProgress.markWordAsKnown();

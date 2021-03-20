@@ -14,7 +14,7 @@ export function wordSetCard(title: string, cb: Function): HTMLElement {
 export function getWordCard(word: string, cb: Function): HTMLElement {
   const elem: HTMLElement = document.createElement("div");
   const html = `            
-    <div class="word-card">
+    <div class="word-card front">
       <h2 id="word">${word}</h2>
         <div class="card-help">
           <p>Tap to see meaning of the word</p>
@@ -29,9 +29,11 @@ export function getMeaningCard(wordMeaning: WordMeaning, cb: Function) {
   const wordCardElem: HTMLElement = document.createElement("div");
   wordCardElem.className += "word-card";
   const html = `
-              <h2 id="word">${wordMeaning.word}</h2>
-              <p id="meaning">${wordMeaning.meaning}</p>
-              <p id="question">Did you get it right?</p>
+              <div class="back">
+                <h2 id="word">${wordMeaning.word}</h2>
+                <p id="meaning">${wordMeaning.meaning}</p>
+                <p id="question">Did you get it right?</p>
+              </div>
               `;
   wordCardElem.innerHTML = html;
 
