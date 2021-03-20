@@ -1,10 +1,7 @@
-import {
-  getWordCard,
-  getMeaningCard,
-  getCongratulationsDiv
-} from "./ui-elements";
+import { getWordCard, getCongratulationsDiv } from "./ui-elements";
 import { SetProgress } from "./set-progress";
 import { log } from "./utils";
+import { showPage } from "./pages";
 
 const wordMeaningPage: HTMLElement = document.getElementById(
   "word-meaning-section"
@@ -57,6 +54,7 @@ export class WordMeaningContainer {
   displayWord(wordMeaning: WordMeaning) {
     log("coming here");
     this.wordCardContainer.innerHTML = "";
+    this.wordCardContainer.appendChild(this.getBackButton());
     this.wordCardContainer.appendChild(
       getWordCard(wordMeaning.word, () => this.displayMeaning(wordMeaning))
     );
@@ -159,11 +157,15 @@ export class WordMeaningContainer {
     elem.addEventListener("click", () => cb.call(this, id));
     return elem;
   }
-}
 
-/**
- * TODO:
- * 1. On word tap - show its meaning
- * 2. On button tap - re-initialize words to show and show next Word
- * 3. Show a back button, that'll take user back to word list
- */
+  getBackButton(): HTMLElement {
+    const elem: HTMLElement = document.createElement("div");
+    elem.innerHTML = "<p> Go back to the list </p>";
+    elem.addEventListener("click", () => this.test("concept-list"));
+    return elem;
+  }
+
+  test(p: string) {
+    log(p);
+  }
+}
