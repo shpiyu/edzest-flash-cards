@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2 {
+  font-family: Lato;
+  padding: 0.2em;
+}
+
+header {
+  background-color: black;
+  color: white;
+  padding: 0.2em;
+}
+
+main {
+  padding: 2%;
+}
+
+.set-card {
+  padding: 2em;
+  margin: 1em auto;
+  font-family: Lato;
+  text-align: center;
+  background-color: rgb(185, 185, 185);
+  box-shadow: 0px 0px 9px 0px rgb(209, 209, 209);
+}
+
+.word-card {
+  margin: 0 auto;
+  border: 1px solid lightgray;
+  text-align: center;
+  max-width: 500px;
+}
+
+.word-card h2 {
+  font-family: Lato;
+  margin: 2em 0 0 0;
+}
+
+.word-card p#meaning {
+  margin: 2em 1em;
+}
+
+.word-card .card-help {
+  background: grey;
+}
+
+.word-card .card-help p {
+  padding: 1em;
+}
+
+.word-card .button {
+  display: inline-block;
+  width: 43%;
+  border-right: 1px solid black;
+  padding: 1em;
+  text-transform: capitalize;
+}
+
+.word-card .button:last-child {
+  border: none;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .set-card {
+    max-width: 95%;
+  }
+
+  .word-card {
+    max-width: 95%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .set-card {
+    max-width: 750px;
+  }
+}
