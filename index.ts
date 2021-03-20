@@ -2,15 +2,21 @@
 import "./style.css";
 import { log } from "./utils";
 import { getWordCard, wordSetCard } from "./ui-elements";
-import { initializeWordMeaning } from "./word-meaning";
+import { initializeWordMeaning, WordMeaningContainer } from "./word-meaning";
+import { ConceptListContainer } from "./concept-list";
+import { showPage } from "./pages";
 
-const wordSets: string[] = ["Crust", "Mantle", "Core"];
-const wordSetPage: HTMLElement = document.getElementById("word-set-section");
+// const wordSets: string[] = ["Crust", "Mantle", "Core"];
+const conceptListPage: HTMLElement = document.getElementById("concept-list");
 const wordMeaningPage: HTMLElement = document.getElementById(
   "word-meaning-section"
 );
 
-initializeWordSetContainer();
+showPage("concept-list");
+
+// const backButton: HTMLElement = document.getElementById("back");
+
+// initializeWordSetContainer();
 
 function showWords(setName: string) {
   /*
@@ -19,20 +25,29 @@ function showWords(setName: string) {
   3. show word-meaning page
   */
   log(setName);
-  wordSetPage.style.display = "none";
+  conceptListPage.style.display = "none";
+  wordMeaningPage.style.display = "block";
   initializeWordMeaning(setName);
 }
 
-function initializeWordSetContainer() {
-  const wordSetContainer: HTMLElement = document.getElementById(
-    "word-sets-container"
-  );
-  wordSetContainer.innerHTML = "";
-  wordSets.forEach(setName => {
-    const wordSet = wordSetCard(setName, () => showWords(setName));
-    wordSetContainer.appendChild(wordSet);
-  });
+// backButton.addEventListener("click", () => showWordSetsPage());
+
+function showWordSetsPage() {
+  conceptListPage.style.display = "block";
+  wordMeaningPage.style.display = "none";
 }
+
+// function initializeWordSetContainer() {
+//   wordMeaningPage.style.display = "none";
+//   const wordSetContainer: HTMLElement = document.getElementById(
+//     "word-sets-container"
+//   );
+//   wordSetContainer.innerHTML = "";
+//   wordSets.forEach(setName => {
+//     const wordSet = wordSetCard(setName, () => showWords(setName));
+//     wordSetContainer.appendChild(wordSet);
+//   });
+// }
 
 /* initialize words */
 
