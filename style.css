@@ -5,7 +5,7 @@
 
 html {
   min-height: 100vh;
-  background: #d5e6fb;
+  background: #e8d8fd;
 }
 h1,
 h2 {
@@ -14,7 +14,7 @@ h2 {
 }
 
 header {
-  background-color: #3a3a3a;
+  background-color: #3b45a3;
   color: white;
   padding: 0.2em;
   text-align: center;
@@ -65,13 +65,31 @@ main {
   text-align: center;
   max-width: 500px;
   background: white;
-  box-shadow: 1px 1px 4px 0px grey;
+  background-image: linear-gradient(45deg, #3b45a3, #ff4e72);
+  color: white;
+  box-shadow: 1px 1px 15px 0px #c5c5c5;
   padding-top: 1.5em;
+  border-radius: 20px;
 }
 
 .word-card h2 {
   font-family: Lato;
   font-size: 2.5em;
+  padding: 1.5em;
+}
+
+.word-card .back h2 {
+  padding: 0.5em;
+}
+
+.word-card p {
+  padding: 1em;
+  font-style: italic;
+}
+
+.word-card .back p {
+  padding: 0;
+  font-style: normal;
 }
 
 .word-card p#meaning {
@@ -82,12 +100,12 @@ main {
 
 .word-card p#question {
   padding: 0.5em;
-  background: #b9b9b9;
   font-style: italic;
 }
 
 .word-card .card-help {
   background: #dedede;
+  border-radius: 0% 0% 18px 18px;
 }
 
 .word-card .card-help p {
@@ -99,10 +117,18 @@ main {
   padding: 1em;
   text-transform: capitalize;
   transform: rotateY(180deg);
+  background: #241568;
 }
 
 .word-card .button:last-child {
   border: none;
+  background: #3b45a3;
+  border-radius: 0% 0% 18px 18px;
+}
+
+.back-btn {
+  font-family: "Lexend", sans-serif;
+  text-transform: uppercase;
 }
 
 /* Extra small devices (phones, 600px and down) */

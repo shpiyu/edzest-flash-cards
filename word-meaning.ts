@@ -36,6 +36,8 @@ export class WordMeaningContainer {
     wordCardContainer.id = "wordCardContainer";
     cardContainer.appendChild(wordCardContainer);
 
+    wordMeaningPage.appendChild(this.getBackButton());
+
     wordMeaningPage.appendChild(cardContainer);
     log("appended child");
 
@@ -54,11 +56,9 @@ export class WordMeaningContainer {
   displayWord(wordMeaning: WordMeaning) {
     log("coming here");
     this.wordCardContainer.innerHTML = "";
-    this.wordCardContainer.appendChild(this.getBackButton());
     this.wordCardContainer.appendChild(
       getWordCard(wordMeaning.word, () => this.displayMeaning(wordMeaning))
     );
-    log("can't come here");
   }
 
   displayMeaning(wordMeaning: WordMeaning) {
@@ -160,12 +160,14 @@ export class WordMeaningContainer {
 
   getBackButton(): HTMLElement {
     const elem: HTMLElement = document.createElement("div");
+    elem.className += "back-btn";
     elem.innerHTML = "<p> Go back to the list </p>";
     elem.addEventListener("click", () => this.test("concept-list"));
     return elem;
   }
 
   test(p: string) {
-    log(p);
+    log("will it work?");
+    showPage("concept-list");
   }
 }

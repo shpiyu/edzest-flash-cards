@@ -16,9 +16,9 @@ export function getWordCard(word: string, cb: Function): HTMLElement {
   const html = `            
     <div class="word-card front">
       <h2 id="word">${word}</h2>
-        <div class="card-help">
+        
           <p>Tap to see meaning of the word</p>
-        </div>
+        
     </div>`;
   elem.innerHTML = html;
   elem.addEventListener("click", cb);
