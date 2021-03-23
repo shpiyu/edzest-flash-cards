@@ -2,6 +2,7 @@ import { getWordCard, getCongratulationsDiv } from "./ui-elements";
 import { SetProgress } from "./set-progress";
 import { log } from "./utils";
 import { showPage } from "./pages";
+import { header } from "./index";
 
 const wordMeaningPage: HTMLElement = document.getElementById(
   "word-meaning-section"
@@ -25,6 +26,7 @@ export class WordMeaningContainer {
     this.progress = new SetProgress(this.wordMeanings);
     this.wordCardContainer = this.initializeCardContainer();
     this.showNextWord();
+    header.setHeader(this.getBackButton(), null, concept_name);
   }
 
   initializeCardContainer(): HTMLElement {
@@ -35,8 +37,6 @@ export class WordMeaningContainer {
     wordCardContainer.className += "word-card-container";
     wordCardContainer.id = "wordCardContainer";
     cardContainer.appendChild(wordCardContainer);
-
-    wordMeaningPage.appendChild(this.getBackButton());
 
     wordMeaningPage.appendChild(cardContainer);
     log("appended child");
@@ -161,7 +161,8 @@ export class WordMeaningContainer {
   getBackButton(): HTMLElement {
     const elem: HTMLElement = document.createElement("div");
     elem.className += "back-btn";
-    elem.innerHTML = "<p> Go back to the list </p>";
+    elem.innerHTML =
+      "<a href='#'> <i class='fa fa-arrow-left' aria-hidden='true'></i> </a>";
     elem.addEventListener("click", () => this.test("concept-list"));
     return elem;
   }

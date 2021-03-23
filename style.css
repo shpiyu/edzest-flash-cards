@@ -19,6 +19,26 @@ header {
   padding: 0.2em;
   text-align: center;
   box-shadow: 0px 1px 12px 0px grey;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+}
+
+header .icon-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .icon-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 header h2 {
@@ -142,9 +162,9 @@ main {
   border-radius: 0% 0% 18px 18px;
 }
 
-.back-btn {
-  font-family: "Lexend", sans-serif;
-  text-transform: uppercase;
+.back-btn a,
+.back-btn a:visited {
+  color: white;
 }
 
 /* Extra small devices (phones, 600px and down) */

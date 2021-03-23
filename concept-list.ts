@@ -1,11 +1,13 @@
-import { log } from "./utils";
 import { wordSetCard } from "./ui-elements";
 import { showPage } from "./pages";
+import { header } from "./index";
 
 export class ConceptListContainer {
   concepts: string[] = [];
+  appName: string = "PMP Flash Cards";
 
   constructor() {
+    if (header != undefined) header.setHeader(null, null, this.appName);
     this.initializeConcepts();
     this.display();
   }
