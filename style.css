@@ -14,7 +14,7 @@ h2 {
 }
 
 header {
-  background-color: #3b45a3;
+  background-color: #241568;
   color: white;
   padding: 0.2em;
   text-align: center;
@@ -85,11 +85,27 @@ main {
 .word-card p {
   padding: 1em;
   font-style: italic;
+  animation: 1s fadeIn;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+  visibility: hidden;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .word-card .back p {
   padding: 0;
   font-style: normal;
+  animation: none;
+  visibility: visible;
 }
 
 .word-card p#meaning {
