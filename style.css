@@ -55,6 +55,9 @@ main {
   text-align: center;
   background-color: rgb(255 255 255);
   box-shadow: 0px 0px 4px 0px rgb(156 156 156);
+  border-radius: 15px;
+  background-image: linear-gradient(45deg, #3b45a3, #ff4e72);
+  color: white;
 }
 
 .card-container {
