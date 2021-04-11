@@ -1,28 +1,22 @@
 import { wordSetCard } from "./ui-elements";
 import { showPage } from "./pages";
 import { header } from "./index";
+import { getLevels } from "./data/firebase-db";
 
 export class ConceptListContainer {
-  concepts: string[] = [];
   appName: string = "PMP Flash Cards";
 
   constructor() {
     if (header != undefined) header.setHeader(null, null, this.appName);
-    this.initializeConcepts();
-    this.display();
+    getLevels(this.display);
   }
 
-  initializeConcepts() {
-    this.concepts = ["Crust", "Mantle", "Core"];
-    // todo: get this from db
-  }
-
-  display() {
+  display(levels: string[]) {
     const wordSetContainer: HTMLElement = document.getElementById(
       "concept-list"
     );
     wordSetContainer.innerHTML = "";
-    this.concepts.forEach(conceptName => {
+    levels.forEach(conceptName => {
       const wordSet = wordSetCard(conceptName, () =>
         showPage("word-meaning", conceptName)
       );
