@@ -3,6 +3,7 @@ import { SetProgress } from "./set-progress";
 import { log } from "./utils";
 import { showPage } from "./pages";
 import { header } from "./index";
+import { getConceptsByLevel } from "./data/firebase-db";
 
 const wordMeaningPage: HTMLElement = document.getElementById(
   "word-meaning-section"
@@ -16,17 +17,21 @@ export class WordMeaning {
 
 export class WordMeaningContainer {
   progress: SetProgress;
-  wordMeanings: WordMeaning[];
   wordCardContainer: HTMLElement;
 
   constructor(concept_name) {
     log(concept_name);
-    this.wordMeanings = this.getWordMeanings(concept_name);
     // WARN: Everytime user goes back to main list progress will be lost
-    this.progress = new SetProgress(this.wordMeanings);
+    getConceptsByLevel(concept_name, this.x.bind(this));
+    
+    header.setHeader(this.getBackButton(), null, concept_name);
+  }
+
+  x(wordMeanings) {
+    console.log(wordMeanings);
+    this.progress = new SetProgress(wordMeanings);
     this.wordCardContainer = this.initializeCardContainer();
     this.showNextWord();
-    header.setHeader(this.getBackButton(), null, concept_name);
   }
 
   initializeCardContainer(): HTMLElement {
@@ -92,37 +97,37 @@ export class WordMeaningContainer {
     }
   }
 
-  getWordMeanings(setName: string) {
-    // todo: fetch real data from firebase
-    const mockWordMeanings: WordMeaning[] = [
-      {
-        word: "Project",
-        meaning:
-          "A Project is a Temporary edeavour to produce a product, a service, or a result."
-      },
-      {
-        word: "Project Manager",
-        meaning:
-          "A person assigned by the performing organization to lead the team responsible for achieving the project objectives."
-      },
-      {
-        word: "Portfolio Management",
-        meaning:
-          "Management of a group of programs and/or programs together to achieve an organizational strategies and policies."
-      },
-      {
-        word: "Phase Gates",
-        meaning:
-          "A control point at which a project charter and business documents are re-examined based on current environment to determine if the project should be changed, terminated, or continued as planned."
-      },
-      {
-        word: "Business Case",
-        meaning:
-          "A documented economic feasibility study used to establish the validity of the benefits selected and used as a basis for authorization of further project management activities"
-      }
-    ];
-    return mockWordMeanings;
-  }
+  // getWordMeanings(setName: string) {
+  //   // todo: fetch real data from firebase
+  //   const mockWordMeanings: WordMeaning[] = [
+  //     {
+  //       word: "Project",
+  //       meaning:
+  //         "A Project is a Temporary edeavour to produce a product, a service, or a result."
+  //     },
+  //     {
+  //       word: "Project Manager",
+  //       meaning:
+  //         "A person assigned by the performing organization to lead the team responsible for achieving the project objectives."
+  //     },
+  //     {
+  //       word: "Portfolio Management",
+  //       meaning:
+  //         "Management of a group of programs and/or programs together to achieve an organizational strategies and policies."
+  //     },
+  //     {
+  //       word: "Phase Gates",
+  //       meaning:
+  //         "A control point at which a project charter and business documents are re-examined based on current environment to determine if the project should be changed, terminated, or continued as planned."
+  //     },
+  //     {
+  //       word: "Business Case",
+  //       meaning:
+  //         "A documented economic feasibility study used to establish the validity of the benefits selected and used as a basis for authorization of further project management activities"
+  //     }
+  //   ];
+  //   return mockWordMeanings;
+  // }
 
   /* UI component */
   getMeaningCard(wordMeaning: WordMeaning, cb: Function) {
