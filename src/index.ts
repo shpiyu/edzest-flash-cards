@@ -4,7 +4,6 @@ import { Header } from "./header";
 import { firebase } from "@firebase/app";
 
 import "@firebase/database";
-import { getConceptsByLevel } from "./data/firebase-db";
 
 var firebaseConfig = {
     apiKey: "AIzaSyDZDv6-_qSDm62KDryp3jefSnERThKEFkg",
@@ -23,7 +22,14 @@ export const firebase_db = firebase.database();
 // getLevels(console.log);
 // getConceptsByLevel('Introductory', console.log)
 
-showPage("concept-list");
+
+
+
+// if (firebase.auth().currentUser) {
+//     showPage("concept-list");
+// } else {
+    showPage("auth");
+// }
 
 const title = "PMP Flash Cards";
 export const header = new Header(null, null, title);

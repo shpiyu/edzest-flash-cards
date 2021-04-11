@@ -1,5 +1,6 @@
 import { ConceptListContainer } from "./concept-list";
 import { WordMeaningContainer } from "./word-meaning";
+import { AuthContainer } from "./auth"; 
 
 interface Page {
   id: string;
@@ -11,6 +12,7 @@ const conceptListPage: HTMLElement = document.getElementById("concept-list");
 const wordMeaningPage: HTMLElement = document.getElementById(
   "word-meaning-section"
 );
+const authPage: HTMLElement = document.getElementById("auth-section");
 
 const pages: Page[] = [
   {
@@ -22,6 +24,11 @@ const pages: Page[] = [
     id: "word-meaning",
     element: wordMeaningPage,
     container: WordMeaningContainer
+  },
+  {
+    id: "auth",
+    element: authPage,
+    container: AuthContainer
   }
 ];
 
