@@ -22,12 +22,12 @@ export class WordMeaningContainer {
   constructor(concept_name) {
     log(concept_name);
     // WARN: Everytime user goes back to main list progress will be lost
-    getConceptsByLevel(concept_name, this.x.bind(this));
+    getConceptsByLevel(concept_name, this.initializeConcept.bind(this));
     
     header.setHeader(this.getBackButton(), null, concept_name);
   }
 
-  x(wordMeanings) {
+  initializeConcept(wordMeanings) {
     console.log(wordMeanings);
     this.progress = new SetProgress(wordMeanings);
     this.wordCardContainer = this.initializeCardContainer();
@@ -44,7 +44,6 @@ export class WordMeaningContainer {
     cardContainer.appendChild(wordCardContainer);
 
     wordMeaningPage.appendChild(cardContainer);
-    log("appended child");
 
     return wordCardContainer;
   }
@@ -59,7 +58,6 @@ export class WordMeaningContainer {
   }
 
   displayWord(wordMeaning: WordMeaning) {
-    log("coming here");
     this.wordCardContainer.innerHTML = "";
     this.wordCardContainer.appendChild(
       getWordCard(wordMeaning.word, () => this.displayMeaning(wordMeaning))
