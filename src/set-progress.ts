@@ -5,6 +5,8 @@ export class SetProgress {
   wordMeaningsToShow: WordMeaning[] = [];
 
   constructor(wordMeanings: WordMeaning[]) {
+    // remove holes from the array sent by firebase
+    wordMeanings = this.removeHoles(wordMeanings)
     this.wordMeanings = wordMeanings;
     // todo: for logged in users take this value from their profile
     this.wordMeaningsToShow = wordMeanings;
@@ -27,6 +29,10 @@ export class SetProgress {
       console.error("Attempt to read empty word meaning list");
       return null;
     }
+  }
+
+  removeHoles(wordMeanings: WordMeaning[]) {
+    return wordMeanings.filter(wordMeaning => wordMeaning != undefined)
   }
 
   newWordsAvailable(): boolean {

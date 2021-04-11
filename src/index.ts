@@ -4,6 +4,7 @@ import { Header } from "./header";
 import { firebase } from "@firebase/app";
 
 import "@firebase/database";
+import { getConceptsByLevel } from "./data/firebase-db";
 
 var firebaseConfig = {
     apiKey: "AIzaSyDZDv6-_qSDm62KDryp3jefSnERThKEFkg",
