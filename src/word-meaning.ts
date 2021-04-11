@@ -64,8 +64,8 @@ export class WordMeaningContainer {
   displayMeaning(wordMeaning: WordMeaning) {
     this.wordCardContainer.innerHTML = "";
     this.wordCardContainer.style.transform = "rotateY(180deg)";
-    this.wordCardContainer.style.msTransform = "rotateY(180deg)";
-    this.wordCardContainer.style.WebkitTransform = "rotateY(180de)";
+    // this.wordCardContainer.style.msTransform = "rotateY(180deg)";
+    // this.wordCardContainer.style.WebkitTransform = "rotateY(180de)";
     this.wordCardContainer.appendChild(
       this.getMeaningCard(wordMeaning, this.reinitialize_words)
     );
@@ -73,8 +73,8 @@ export class WordMeaningContainer {
 
   reinitialize_words(selected_option: string) {
     this.wordCardContainer.style.transform = "";
-    this.wordCardContainer.style.msTransform = "";
-    this.wordCardContainer.style.WebkitTransform = "";
+    // this.wordCardContainer.style.msTransform = "";
+    // this.wordCardContainer.style.WebkitTransform = "";
 
     log(selected_option);
     if (selected_option == "yes") {

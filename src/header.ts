@@ -2,7 +2,7 @@ export class Header {
   leftIconDiv: HTMLElement = document.createElement("div");
   rightIconDiv: HTMLElement = document.createElement("div");
   titleDiv: HTMLElement = document.createElement("div");
-  headerContainer: HTMLElement = document.getElementById("headerContainer");
+  headerContainer: HTMLElement | null = document.getElementById("headerContainer");
 
   constructor(leftIcon: HTMLElement, rightIcon: HTMLElement, title: string) {
     this.initializeSections();

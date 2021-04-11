@@ -1,7 +1,7 @@
 import { log } from "./utils";
 import { WordMeaning } from "./word-meaning";
 
-export function wordSetCard(title: string, cb: Function): HTMLElement {
+export function wordSetCard(title: string, cb: any): HTMLElement {
   const setCardDiv: HTMLElement = document.createElement("div");
   const content = `<div class='set-card'>
                     <h3>${title}</h3>
@@ -11,7 +11,7 @@ export function wordSetCard(title: string, cb: Function): HTMLElement {
   return setCardDiv;
 }
 
-export function getWordCard(word: string, cb: Function): HTMLElement {
+export function getWordCard(word: string, cb: any): HTMLElement {
   const elem: HTMLElement = document.createElement("div");
   const html = `            
     <div class="word-card front">
